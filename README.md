@@ -1,5 +1,3 @@
 # WebAssembly Clang C++ compiler
 
-<div>
-    <script src="wasm-clang\web.js"></script>
-</div>
+<iframe src="wasm-clang\web.js" width="800" height="400"></iframe>
