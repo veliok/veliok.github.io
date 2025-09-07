@@ -18,21 +18,21 @@
     <pre id="output">Assembly</pre>
     <pre id="errors" style="color:red"></pre>
 
-    <script src="wasm-clang/clang"></script>
+    <script src="wasm-clang/shared_web.js"></script>
     <script>
-        async function compileCode() {
-            const code = document.getElementById("code").value;
-            try {
-                const result = await clang.compile({
-                    source: code,
-                    flags: ["-S", "-O2", "-target=x86_64"]
-                });
-                document.getElementById("output").textContent = result.asm || "";
-                document.getElementById("errors").textContent = result.stderr || "";
-            } catch (e) {
-                document.getElementById("errors").textContent = e.toString();
-            }
-        }
-    </script>
+        createCompiler("clang").then(cc => {
+        document.getElementById("compile").onclick = () => {
+            cc.compile({
+            input: "main.cpp",
+            code: document.getElementById("code").value,
+            args: ["-S", "-O2"]
+        }).then(result => {
+            document.getElementById("output").textContent = result.files["main.s"];
+        }).catch(err => {
+            document.getElementById("errors").textContent = err.toString();
+        });
+        };
+    });
+</script>
 </body>
 </html>
