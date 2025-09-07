@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <textarea id="code">
+        #include <iostream>
+        using namespace std;
+        int main() 
+        {
+            cout << "Hei Vertaisarvioija" << endl;
+        }
+    </textarea>
+
+    <button onclick="compileCode()">Compile</button>
+    <pre id="output">Assembly</pre>
+    <pre id="errors" style="color:red"></pre>
+
+    <script src="wasm-clang/clang.js"></script>
+    <script>
+        async function compileCode() {
+            const code = document.getElementById("code").value;
+            try {
+                const result = await clang.compile({
+                    source: code,
+                    flags: ["-S", "-O2", "-target=x86_64"]
+                });
+                document.getElementById("output").textContent = result.asm || "";
+                document.getElementById("errors").textContent = result.stderr || "";
+            } catch (e) {
+                document.getElementById("errors").textContent = e.toString();
+            }
+        }
+    </script>
+</body>
+</html>
