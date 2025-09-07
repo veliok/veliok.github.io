@@ -1,26 +1,4 @@
-/*
- * Copyright 2020 WebAssembly Community Group participants
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-// Warn on close. It's easy to accidentally hit Ctrl+W.
-window.addEventListener('beforeunload', event => {
-  event.preventDefault();
-  event.returnValue = '';
-});
-
-window.addEventListener('resize', event => layout.updateSize());
+/*window.addEventListener('resize', event => layout.updateSize());
 
 let editor;
 const run = debounceLazy(editor => api.compileLinkRun(editor.getValue()), 100);
@@ -53,7 +31,7 @@ function EditorComponent(container, state) {
       editor = null;
     }
   });
-}
+}*/
 
 let term;
 Terminal.applyAddon(fit);
