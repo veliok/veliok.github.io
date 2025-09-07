@@ -31,7 +31,7 @@ function EditorComponent(container, state) {
       editor = null;
     }
   });
-}*/
+}
 
 let term;
 Terminal.applyAddon(fit);
@@ -115,7 +115,7 @@ class Layout extends GoldenLayout {
     this.registerComponent('editor', EditorComponent);
     this.registerComponent('terminal', TerminalComponent);
   }
-}
+}*/
 
 class WorkerAPI {
   constructor() {
