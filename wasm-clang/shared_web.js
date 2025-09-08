@@ -33,23 +33,14 @@ class WorkerAPI {
     return this.runAsync('compileToAssembly', options);
   }
 
-  async compileTo6502(options) {
-    return this.runAsync('compileTo6502', options);
-  }
-
-  compileLinkRun(contents) {
-    this.port.postMessage({id: 'compileLinkRun', data: contents});
-  }
-
-  postCanvas(offscreenCanvas) {
-    this.port.postMessage({id : 'postCanvas', data : offscreenCanvas},
-                          [ offscreenCanvas ]);
-  }
-
   onmessage(event) {
     switch (event.data.id) {
       case 'write':
-        term.write(event.data.data);
+        // <pre id="errors">
+        const errBox = document.getElementById("errors");
+        if (errBox) {
+          errBox.textContent += event.data.data;
+        }
         break;
 
       case 'runAsync': {
@@ -65,4 +56,7 @@ class WorkerAPI {
   }
 }
 
-const api = new WorkerAPI();
+// compiler.html
+function createCompiler() {
+  return new WorkerAPI();
+}

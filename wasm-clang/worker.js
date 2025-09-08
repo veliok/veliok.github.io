@@ -37,35 +37,7 @@ const onAnyMessage = async event => {
                        transferList);
     }
     break;
-  }
-
-  case 'compileTo6502': {
-    const responseId = event.data.responseId;
-    let output = null;
-    let transferList;
-    try {
-      output = await api.compileTo6502(event.data.data);
-    } finally {
-      port.postMessage({id : 'runAsync', responseId, data : output},
-                       transferList);
     }
-    break;
-  }
-
-  case 'compileLinkRun':
-    if (currentApp) {
-      console.log('First, disallowing rAF from previous app.');
-      // Stop running rAF on the previous app, if any.
-      currentApp.allowRequestAnimationFrame = false;
-    }
-    currentApp = await api.compileLinkRun(event.data.data);
-    console.log(`finished compileLinkRun. currentApp = ${currentApp}.`);
-    break;
-
-  case 'postCanvas':
-    canvas = event.data.data;
-    ctx2d = canvas.getContext('2d');
-    break;
   }
 };
 

@@ -29,26 +29,23 @@
 
     <script src="wasm-clang/shared_web.js"></script>
     <script>
-    const ccPromise = createCompiler("clang"); // returns a promise
 
-    ccPromise.then(cc => {
-        document.getElementById("compile").onclick = () => {
+    const compiler = createCompiler();
+
+    document.getElementById("compile").onclick = () => {
         document.getElementById("output").textContent = "Compiling...";
         document.getElementById("errors").textContent = "";
 
-        cc.compile({
-            input: "main.cpp",
-            code: document.getElementById("code").value,
-            args: ["-S", "-O2"]
-        }).then(result => {
-            document.getElementById("output").textContent = result.files["main.s"] || "";
-        }).catch(err => {
-            document.getElementById("errors").textContent = err.toString();
-        });
-        };
+        compiler.compileToAssembly({
+        input: "main.cpp",
+        code: document.getElementById("code").value,
+        args: ["-S", "-O2"]
+    }).then(result => {
+        document.getElementById("output").textContent = result.files["main.s"] || "[No assembly output]";
     }).catch(err => {
-        document.getElementById("errors").textContent = "Failed to load compiler: " + err;
+        document.getElementById("errors").textContent = err.toString();
     });
+    };
     </script>
 </body>
 </html>
