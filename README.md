@@ -11,12 +11,13 @@
 <script>
     customElements.whenDefined("wasmpsx-player").then(() => {
         const player = document.getElementById("wasmpsx-element");
-        player.fetchFile("ps1/ny.bin", "ny.bin").then(() => {
-            player.insertCD("ny.bin");
+        player.fetchFile("ps1/intro.exe", "intro.exe").then(() => {
+            player.insertCD("intro.exe");
         });
     });
 </script>
 
+<br>
 > Net Yaroze was an development kit for Sony Playstation console.
 > Consumers were able to write PS1 games in C code and upload it to the console.
 > Wanted to showcase this, will remove after the course because gray area.
