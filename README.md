@@ -20,6 +20,7 @@ customElements.whenDefined("wasmpsx-player").then(() => {
         player.fetchFile("ps1/intro.exe", "intro.exe").then(() => {
             player.readFile("intro.exe");
         }).catch(err => console.error("Failed to load file:", err));
+    });
 });
 </script>
 
