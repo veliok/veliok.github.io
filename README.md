@@ -14,6 +14,11 @@
 customElements.whenDefined("wasmpsx-player").then(() => {
     const player = document.getElementById("wasmpsx-element");
 
+    if (!player) {
+        console.error("Player element not found!");
+        return;
+    }
+
     player.fetchFile("ps1/intro.exe", "intro.exe").then(() => {
         player.readFile("intro.exe");
     }).catch(err => console.error("Failed to load file:", err));
