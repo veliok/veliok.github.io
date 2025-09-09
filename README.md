@@ -10,8 +10,8 @@
 <wasmpsx-player id="wasmpsx-element"></wasmpsx-player>
 <script>
     const player = document.getElementById("wasmpsx-element");
-    player.fetchFile("ps1/ny.bin, "ny.bin").then(() => {
-        player.readFile("ny.bin");
+    player.fetchFile("ps1/ny.bin", "ny.bin").then(() => {
+        player.insertCD("ny.bin");
     });
 </script>
 
