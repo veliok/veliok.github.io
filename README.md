@@ -7,9 +7,17 @@
 
 ## [WASMpsx](https://github.com/js-emulators/wasmpsx) with Net Yaroze games
 <script src="ps1/wasmpsx.min.js"></script>
-<wasmpsx-player id="wasmpsx-element" style="width:640px; height:480px; border:1px solid #000;"></wasmpsx-player>
+
+<wasmpsx-player id="wasmpsx-element" style="width:640px; height:480px; border:1px solid black;"></wasmpsx-player>
+
 <script>
-     document.getElementById("wasmpsx-element").readFile("ps1/intro.exe");
+customElements.whenDefined("wasmpsx-player").then(() => {
+    const player = document.getElementById("wasmpsx-element");
+
+    player.fetchFile("ps1/intro.exe", "intro.exe").then(() => {
+        player.readFile("intro.exe");
+    }).catch(err => console.error("Failed to load file:", err));
+});
 </script>
 
 <br>
