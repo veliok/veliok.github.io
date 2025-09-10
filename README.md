@@ -1,32 +1,48 @@
-# Hosting some wasm projects for Pilvipalvelut
-<br>
+# **Keyboard Project**
+## 1. **Overview**
 
-## [wasmboy](https://github.com/torch2424/wasmboy) running Public Domain ROM of Ultima III
-<iframe title="WasmBoy Iframe Embed" width="320" height="288" allowfullscreen="true" src="https://wasmboy.app/iframe/?rom-url=https://raw.githubusercontent.com/veliok/veliok.github.io/main/gb/ult3.gb"> </iframe>
-<br><br>
+**IN PROGRESS**
 
-## [WASMpsx](https://github.com/js-emulators/wasmpsx) with Net Yaroze games
-<script src="ps1/wasmpsx.min.js"></script>
+Project documentary for fully custom mechanical keyboard. Plan is to make fine looking, great sounding and nice looking split keyboard.
 
-<wasmpsx-player id="wasmpsx-element" style="width:640px; height:480px; border:1px solid black;"></wasmpsx-player>
+Switches will be hand wired(no pcb). Self designed layout, case and plate. 3D printing will be done by some company not decided yet. Budgetary goal for this whole project will be <100€.
 
+#
+
+<div style="text-align: center;">
+  <p>While this project is under way, enjoy some Theme Hospital</p>
+  <div id="dos" style="width: 640px; height: 400px; margin: 0 auto;"></div>
+</div>
+
+<script src="https://js-dos.com/6.22/current/js-dos.js"></script>
 <script>
-customElements.whenDefined("wasmpsx-player").then(() => {
-    const player = document.getElementById("wasmpsx-element");
-
-    player.addEventListener("ready", () => {
-        console.log("WASMpsx ready!");
-
-        player.fetchFile("ps1/intro.exe", "intro.exe").then(() => {
-            player.readFile("intro.exe");
-        }).catch(err => console.error("Failed to load file:", err));
+  Dos(document.getElementById("dos"), { wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js" })
+    .ready(function (fs, main) {
+      fs.fetch("https://dosgames.com/files/DOSBOX_HOSPITAL.ZIP")
+        .then(fs.extract)
+        .then(() => main(["-c", "HOSPITAL.exe"]));
     });
-});
 </script>
 
-<br>
-> Net Yaroze was an development kit for Sony Playstation console.
-> Consumers were able to write PS1 games in C code and upload it to the console.
-> Wanted to showcase this, will remove after the course because gray area.
 
-
+---
+### **2. Design**
+---
+#### **2.1 Case**
+#### **2.2 Plate**
+#### **2.3 Layout**
+---
+### **3. Electronics**
+---
+#### **3.1 Controllers**
+#### **3.2 Cables**
+#### **3.3 Switches**
+---
+### **4. Firmware**
+---
+### **5. Sound & Feel**
+---
+### **6. Assembly**
+---
+### **7. Result**
+---
