@@ -8,9 +8,8 @@ Project documentary for fully custom mechanical keyboard. Plan is to make fine l
 Switches will be hand wired(no pcb). Self designed layout, case and plate. 3D printing will be done by some company not decided yet. Budgetary goal for this whole project will be <100€.
 
 ---
-**<center>This section is reserved for entertainment </center>**
 
-</script>
+**<center>This section is reserved for entertainment </center>**
 
 ---
 ### **2. Design**
