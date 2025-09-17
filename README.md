@@ -9,14 +9,13 @@ Switches will be hand wired(no pcb). Self designed layout, case and plate. 3D pr
 
 ---
 
-**<center>This section is reserved for entertainment </center>**
-
 ---
 ### **2. Design**
 ---
-#### **2.1 Case**
+#### **2.1 Layout**
+![Left side](/images/layoutLeft.png) ![Right side](/images/layoutRight.png)
 #### **2.2 Plate**
-#### **2.3 Layout**
+#### **2.3 Case**
 ---
 ### **3. Electronics**
 ---
@@ -26,9 +25,7 @@ Switches will be hand wired(no pcb). Self designed layout, case and plate. 3D pr
 ---
 ### **4. Firmware**
 ---
-### **5. Sound & Feel**
+### **5. Assembly**
 ---
-### **6. Assembly**
----
-### **7. Result**
+### **6. Result**
 ---
