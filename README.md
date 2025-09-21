@@ -1,31 +1,33 @@
-# **Keyboard Project**
-## 1. **Overview**
+This site serves as a multiple exercise platform for Pilvipalvelut course, for now.
 
-**IN PROGRESS**
+## Oulu traffic map
+<style> #map {height: 500px; width: 500px;}</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 
-Project documentary for fully custom mechanical keyboard. Plan is to make fine looking, great sounding and nice looking split keyboard.
+<div id="map"></div>
+<script src="/traffic-map/traffic-map.js"></script>
 
-Switches will be hand wired(no pcb). Self designed layout, case and plate. 3D printing will be done by some company not decided yet. Budgetary goal for this whole project will be <100€.
 
----
+##
+Leaflet.js map that indicates number of vehicles at intersections in last 5 minute interval. Colors and values might need some adjusting. Get data from Oulun liikenne API.
 
----
-### **2. Design**
----
-#### **2.1 Layout**
-![Left side](/images/layoutLeft.png) ![Right side](/images/layoutRight.png)
-#### **2.2 Plate**
-#### **2.3 Case**
----
-### **3. Electronics**
----
-#### **3.1 Controllers**
-#### **3.2 Cables**
-#### **3.3 Switches**
----
-### **4. Firmware**
----
-### **5. Assembly**
----
-### **6. Result**
----
+## Discounted phones
+
+```
+Coming in near future
+```
+
+## Keyboard
+
+```
+Work very much in progress
+```
+<div class="grid" markdown>
+![left](images/layoutLeft.png)
+![right](images/layoutRight.png)
+</div>

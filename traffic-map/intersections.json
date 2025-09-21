@@ -1,0 +1,1148 @@
+[
+  {
+    "id": "HA01LV",
+    "location": "Haukiputaantie (Mt 847)-Haukiväylä (Mt 848)",
+    "lat": 65.16645149284054,
+    "lon": 25.347482897479736
+  },
+  {
+    "id": "HA02LV",
+    "location": "Haukiputaantie (Mt 847) - Martinniementie (Mt 8460)",
+    "lat": 65.19267883665562,
+    "lon": 25.36492748392129
+  },
+  {
+    "id": "II01LV",
+    "location": "Ouluntie (vt 4) - Sorosentie",
+    "lat": 65.28912806945203,
+    "lon": 25.372870945360397
+  },
+  {
+    "id": "II02LV",
+    "location": "Ouluntie (vt 4) - Leipojantie",
+    "lat": 65.30860919791736,
+    "lon": 25.37424394897631
+  },
+  {
+    "id": "KA01LV",
+    "location": "Kalajoki, Kokkolantie (vt 8) - Matkailutie",
+    "lat": 64.23027801679167,
+    "lon": 23.817237131880383
+  },
+  {
+    "id": "KE007",
+    "location": "KEMPELE, Eteläsuomentie (Mt 847)-Piriläntie",
+    "lat": 64.9283473319403,
+    "lon": 25.51163924613072
+  },
+  {
+    "id": "KE02LV",
+    "location": "Ketolanperäntie-Lehmikentäntie",
+    "lat": 64.90323666765026,
+    "lon": 25.54075850450059
+  },
+  {
+    "id": "KE03LV",
+    "location": "Zeppelinin ETL-läntinen",
+    "lat": 64.90638570402709,
+    "lon": 25.534246497235195
+  },
+  {
+    "id": "KE04LV",
+    "location": "Ketolanperäntie-Kiekkotie",
+    "lat": 64.9003806154281,
+    "lon": 25.541463059664498
+  },
+  {
+    "id": "KE05",
+    "location": "Zeppelinin ETL-itäinen",
+    "lat": 64.90510406746039,
+    "lon": 25.53807853735755
+  },
+  {
+    "id": "KE06LV",
+    "location": "Ketolanperäntie (Mt 816) - Zatelliitintie",
+    "lat": 64.90738708552547,
+    "lon": 25.527491346238694
+  },
+  {
+    "id": "KE09",
+    "location": "Mt847 - Komeetantie",
+    "lat": 64.92050639997146,
+    "lon": 25.51014961395889
+  },
+  {
+    "id": "KE10_11LV",
+    "location": "KEMPELE, Lentok.tie (Mt 815)-Vihiluodontie, länsi",
+    "lat": 64.94239294785471,
+    "lon": 25.451703151418737
+  },
+  {
+    "id": "KE12LV",
+    "location": "Zatelliitin ramppi, länsi",
+    "lat": 64.91988032975291,
+    "lon": 25.531162309626342
+  },
+  {
+    "id": "KE13LV",
+    "location": "Zatelliitin ramppi, itä",
+    "lat": 64.9192696816747,
+    "lon": 25.53842784671957
+  },
+  {
+    "id": "KI001",
+    "location": "Kuusamontie - Jääli, etelä",
+    "lat": 65.0843876273223,
+    "lon": 25.67159171506445
+  },
+  {
+    "id": "KI002",
+    "location": "Kuusamontie - Jääli, pohj.",
+    "lat": 65.09407887346772,
+    "lon": 25.681644100664798
+  },
+  {
+    "id": "KI003",
+    "location": "Kuusamontie-Ylikiimingintie",
+    "lat": 65.06385167870202,
+    "lon": 25.63536649621929
+  },
+  {
+    "id": "KI04LV",
+    "location": "Kuusamontie (Vt 20)-Yrityspuistontie",
+    "lat": 65.06964627782382,
+    "lon": 25.651890607515558
+  },
+  {
+    "id": "KI05LV",
+    "location": "Kuusamontie (Vt 20)-Kiimingin keskusta (Mt 848)",
+    "lat": 65.1279078714329,
+    "lon": 25.775398764683825
+  },
+  {
+    "id": "KU01LV",
+    "location": "Ouluntaival - Kitkantie",
+    "lat": 65.96455096904171,
+    "lon": 29.188671712045288
+  },
+  {
+    "id": "KU02LV",
+    "location": "Ouluntaival - Oulangantie",
+    "lat": 65.9616173942916,
+    "lon": 29.17464202239206
+  },
+  {
+    "id": "KU03LV",
+    "location": "Kitkantie - Kaarlo Hännisentie",
+    "lat": 65.97031510697983,
+    "lon": 29.179080975987596
+  },
+  {
+    "id": "KU04LV",
+    "location": "Ouluntaival - Huoparintie",
+    "lat": 65.9574601697639,
+    "lon": 29.161370540802615
+  },
+  {
+    "id": "KU05LV",
+    "location": "Ouluntaival - Torangintaival",
+    "lat": 65.95654937633974,
+    "lon": 29.158476812899952
+  },
+  {
+    "id": "LI01LV",
+    "location": "Vt 8 - Lumijoentie (Mt 813)",
+    "lat": 64.80036426384662,
+    "lon": 25.42452787789593
+  },
+  {
+    "id": "LI02",
+    "location": "Vt 8 / Kurkitie",
+    "lat": 64.80660310357337,
+    "lon": 25.457120573193784
+  },
+  {
+    "id": "MU01LV",
+    "location": "Muhos, Vt22-Asematie",
+    "lat": 64.80754027846041,
+    "lon": 25.99423340637293
+  },
+  {
+    "id": "MU02LV",
+    "location": "MUHOS, Vt22-Kirkkotie",
+    "lat": 64.81286058592619,
+    "lon": 25.974364250625406
+  },
+  {
+    "id": "MU03LV",
+    "location": "Kainuuntie (Vt 22) - Kylmänkyläntie (Mt 8250)",
+    "lat": 64.80529515214428,
+    "lon": 26.014066510648387
+  },
+  {
+    "id": "NI01LV",
+    "location": "Nivala, Haapajäventie (Vt 27)-Pidisjärventie",
+    "lat": 63.93000238711213,
+    "lon": 24.96753623063645
+  },
+  {
+    "id": "NI02LV",
+    "location": "Nivala, Haapajärventie (Vt 27) - Maliskyläntie (Mt 1100)",
+    "lat": 63.92257780423968,
+    "lon": 24.98294277183361
+  },
+  {
+    "id": "OULU_102_106",
+    "location": "Merikoskenkatu - Koskitie",
+    "lat": 65.02362067923671,
+    "lon": 25.468714841596928
+  },
+  {
+    "id": "OULU002",
+    "location": "Saaristonkatu - Rautatienkatu",
+    "lat": 65.00833865798239,
+    "lon": 25.478586421154326
+  },
+  {
+    "id": "OULU004",
+    "location": "Saaristonkatu - Kansankatu",
+    "lat": 65.00940322009095,
+    "lon": 25.47472777682582
+  },
+  {
+    "id": "OULU005",
+    "location": "Saaristonkatu - Uusikatu",
+    "lat": 65.00990417826537,
+    "lon": 25.472810736380005
+  },
+  {
+    "id": "OULU007",
+    "location": "Uusikatu - Pakkahuoneenkatu",
+    "lat": 65.01158078978477,
+    "lon": 25.475282554917975
+  },
+  {
+    "id": "OULU008",
+    "location": "Uusikatu - Hallituskatu",
+    "lat": 65.01238222885777,
+    "lon": 25.476425188155357
+  },
+  {
+    "id": "OULU009_010",
+    "location": "Uusikatu - Asemakatu",
+    "lat": 65.0130572203932,
+    "lon": 25.47749020752929
+  },
+  {
+    "id": "OULU011",
+    "location": "Aleksanterinkatu - Kauppurienkatu",
+    "lat": 65.01283528823613,
+    "lon": 25.466319411251604
+  },
+  {
+    "id": "OULU012",
+    "location": "Kajaaninkatu - Isokatu",
+    "lat": 65.01415842675812,
+    "lon": 25.476345154868447
+  },
+  {
+    "id": "OULU013",
+    "location": "Isokatu - Linnankatu",
+    "lat": 65.01470546704527,
+    "lon": 25.477184085708625
+  },
+  {
+    "id": "OULU014",
+    "location": "Kajaaninkatu - Kirkkokatu",
+    "lat": 65.01467777691869,
+    "lon": 25.47446919835957
+  },
+  {
+    "id": "OULU015",
+    "location": "Linnankatu - Kirkkokatu",
+    "lat": 65.01520602281732,
+    "lon": 25.475224288463497
+  },
+  {
+    "id": "OULU016",
+    "location": "Pokkinen",
+    "lat": 65.01574244648793,
+    "lon": 25.470630683920696
+  },
+  {
+    "id": "OULU017",
+    "location": "Aleksanterinkatu - Hallituskatu",
+    "lat": 65.01447591056598,
+    "lon": 25.46877193582978
+  },
+  {
+    "id": "OULU018",
+    "location": "Saaristonkatu - Isokatu",
+    "lat": 65.01045039361576,
+    "lon": 25.470933472062388
+  },
+  {
+    "id": "OULU019",
+    "location": "Saaristonkatu - Torikatu",
+    "lat": 65.01151475644092,
+    "lon": 25.467074219611693
+  },
+  {
+    "id": "OULU020",
+    "location": "Saaristonkatu - Aleksanterinkatu",
+    "lat": 65.01203355474668,
+    "lon": 25.465155854932735
+  },
+  {
+    "id": "OULU021",
+    "location": "Kainuuntie - Teuvo Pakkalankatu",
+    "lat": 65.00585251111752,
+    "lon": 25.48918705212629
+  },
+  {
+    "id": "OULU022",
+    "location": "Isokatu - Heikinkatu",
+    "lat": 65.01520657448886,
+    "lon": 25.477919552471437
+  },
+  {
+    "id": "OULU023",
+    "location": "Heikinkatu - Lävistäjä",
+    "lat": 65.01418440995018,
+    "lon": 25.481543056790944
+  },
+  {
+    "id": "OULU024",
+    "location": "Heikinkatu - Rautatienkatu",
+    "lat": 65.01314019212045,
+    "lon": 25.485655614826687
+  },
+  {
+    "id": "OULU025",
+    "location": "Kajaanintie - Ratakatu",
+    "lat": 65.01213127441068,
+    "lon": 25.48883215926524
+  },
+  {
+    "id": "OULU026",
+    "location": "Kajaanintie - Teuvo Pakkalankatu",
+    "lat": 65.01133674073066,
+    "lon": 25.494585159413617
+  },
+  {
+    "id": "OULU027",
+    "location": "Kajaanintie - Ylioppilaantie",
+    "lat": 65.01180140384885,
+    "lon": 25.504214067136136
+  },
+  {
+    "id": "OULU028",
+    "location": "Kajaanintie - Professorintie",
+    "lat": 65.01202877985457,
+    "lon": 25.508105839457603
+  },
+  {
+    "id": "OULU029",
+    "location": "Uusikatu - Albertinkatu",
+    "lat": 65.00901894845175,
+    "lon": 25.47137605487212
+  },
+  {
+    "id": "OULU030",
+    "location": "Professorintie - Kiviharjuntie",
+    "lat": 65.00930890541734,
+    "lon": 25.50715430235677
+  },
+  {
+    "id": "OULU031_058",
+    "location": "Uusikatu-Nummikatu",
+    "lat": 65.00754416624439,
+    "lon": 25.46933870628532
+  },
+  {
+    "id": "OULU032",
+    "location": "Aleksanterinkatu - Pakkahuoneenkatu",
+    "lat": 65.01370110472119,
+    "lon": 25.46760669207006
+  },
+  {
+    "id": "OULU033",
+    "location": "Uusikatu - Puistokatu",
+    "lat": 65.00378053796229,
+    "lon": 25.463784008118957
+  },
+  {
+    "id": "OULU045",
+    "location": "Uusikatu - Harjapäänkatu",
+    "lat": 65.0028254034094,
+    "lon": 25.463414620339915
+  },
+  {
+    "id": "OULU034",
+    "location": "Limingantie - Oulunsalontie",
+    "lat": 65.00056834356619,
+    "lon": 25.46386247784248
+  },
+  {
+    "id": "OULU036",
+    "location": "Puistokatu - Isokatu",
+    "lat": 65.00431723476377,
+    "lon": 25.46186510489996
+  },
+  {
+    "id": "OULU037",
+    "location": "Limingantie - Kallisentie",
+    "lat": 64.99233489130263,
+    "lon": 25.46526826832244
+  },
+  {
+    "id": "OULU040",
+    "location": "Aleksanterinkatu - Sepänkatu",
+    "lat": 65.0104567512937,
+    "lon": 25.462806197118688
+  },
+  {
+    "id": "OULU041_042",
+    "location": "Linnankatu - Torikatu",
+    "lat": 65.01572470856445,
+    "lon": 25.473284604009628
+  },
+  {
+    "id": "OULU043",
+    "location": "Saaristonkatu - Kirkkokatu",
+    "lat": 65.0109773422663,
+    "lon": 25.468929916383647
+  },
+  {
+    "id": "OULU046",
+    "location": "Puistokatu - Kirkkokatu",
+    "lat": 65.00482612378785,
+    "lon": 25.45986286645052
+  },
+  {
+    "id": "OULU047",
+    "location": "Puistokatu - Torikatu",
+    "lat": 65.0053354234927,
+    "lon": 25.457902956925505
+  },
+  {
+    "id": "OULU048_049",
+    "location": "Kajaanintie-Kontink.sairaala",
+    "lat": 65.01156283441273,
+    "lon": 25.515388978540365
+  },
+  {
+    "id": "OULU050",
+    "location": "Kajaanintie - OYS",
+    "lat": 65.0105325925587,
+    "lon": 25.52100553068461
+  },
+  {
+    "id": "OULU052",
+    "location": "Limingantie - Rautatienkatu",
+    "lat": 64.99860640564019,
+    "lon": 25.46420847261409
+  },
+  {
+    "id": "OULU053",
+    "location": "Oulunsuuntie - Svaanintie",
+    "lat": 65.00196167802524,
+    "lon": 25.52917953345143
+  },
+  {
+    "id": "OULU055",
+    "location": "Albertinkatu-Torikatu",
+    "lat": 65.01072199833204,
+    "lon": 25.465910182786022
+  },
+  {
+    "id": "OULU056_057",
+    "location": "Albertinkatu-Isokatu",
+    "lat": 65.00962988782189,
+    "lon": 25.46968608282294
+  },
+  {
+    "id": "OULU059",
+    "location": "Oulunsuuntie-Aapistie",
+    "lat": 65.0065899019125,
+    "lon": 25.528903708521227
+  },
+  {
+    "id": "OULU062",
+    "location": "Teuvo Pakkalankatu - Tehtaankatu",
+    "lat": 65.00895378216066,
+    "lon": 25.493234113825196
+  },
+  {
+    "id": "OULU063",
+    "location": "Teuvo Pakkalankatu - Marketit",
+    "lat": 65.01048376624547,
+    "lon": 25.494548321575213
+  },
+  {
+    "id": "OULU064",
+    "location": "Ratakatu - Tehtaankatu",
+    "lat": 65.01068234850204,
+    "lon": 25.486664844525357
+  },
+  {
+    "id": "OULU065",
+    "location": "Ratakatu - Marketit",
+    "lat": 65.01156657427175,
+    "lon": 25.488015291879798
+  },
+  {
+    "id": "OULU066",
+    "location": "Lintulammentie-Suvantokatu",
+    "lat": 65.00674785825106,
+    "lon": 25.481010716343267
+  },
+  {
+    "id": "OULU068",
+    "location": "Nuottasaarentie-Kempeleentie",
+    "lat": 64.99647412917676,
+    "lon": 25.46195560673481
+  },
+  {
+    "id": "OULU069",
+    "location": "Nuottasaarentie-Tyrnäväntie",
+    "lat": 64.99638360083335,
+    "lon": 25.45839787385715
+  },
+  {
+    "id": "OULU097",
+    "location": "Kasarmintie-Kurkelantie",
+    "lat": 65.02081518834956,
+    "lon": 25.51082052437563
+  },
+  {
+    "id": "OULU098",
+    "location": "Tulliväylä - Nahkatehtaankatu",
+    "lat": 65.01627746693588,
+    "lon": 25.490592718931833
+  },
+  {
+    "id": "OULU099",
+    "location": "Tulliväylä - Kosteperänkatu",
+    "lat": 65.01910533541187,
+    "lon": 25.4942323932584
+  },
+  {
+    "id": "OULU1",
+    "location": "Saaristonkatu - Ratakatu",
+    "lat": 65.00737646110706,
+    "lon": 25.481929745383066
+  },
+  {
+    "id": "OULU101",
+    "location": "Merikoskenkatu - Valtatie",
+    "lat": 65.02603835926112,
+    "lon": 25.470805546991006
+  },
+  {
+    "id": "OULU102_106",
+    "location": "Merikoskenkatu - Suojatie",
+    "lat": 65.02428154197116,
+    "lon": 25.469271401124082
+  },
+  {
+    "id": "OULU103",
+    "location": "Valtatie - Kaarretie",
+    "lat": 65.02557929046999,
+    "lon": 25.47418633592765
+  },
+  {
+    "id": "OULU104",
+    "location": "Valtatie - Myllytie",
+    "lat": 65.02528591908373,
+    "lon": 25.477982177478665
+  },
+  {
+    "id": "OULU105",
+    "location": "Valtatie - Kalliotie",
+    "lat": 65.02528680415845,
+    "lon": 25.48248305333216
+  },
+  {
+    "id": "OULU107",
+    "location": "Valtatie - Tuirantie",
+    "lat": 65.02638199868427,
+    "lon": 25.46842915266155
+  },
+  {
+    "id": "OULU108",
+    "location": "Paulaharjuntie - Tarmontie",
+    "lat": 65.03075272219493,
+    "lon": 25.478095322978618
+  },
+  {
+    "id": "OULU109",
+    "location": "Paulaharjuntie - Revontie",
+    "lat": 65.03117242204921,
+    "lon": 25.470851334777656
+  },
+  {
+    "id": "OULU110",
+    "location": "Tulliväylä - Valtatie",
+    "lat": 65.02534138071594,
+    "lon": 25.493201496640445
+  },
+  {
+    "id": "OULU111",
+    "location": "Tulliväylä - Kuusamontie",
+    "lat": 65.02691257858609,
+    "lon": 25.494153230396538
+  },
+  {
+    "id": "OULU113",
+    "location": "Kiertotie - Kemintien ramppi",
+    "lat": 65.02859323566292,
+    "lon": 25.472273011975698
+  },
+  {
+    "id": "OULU114",
+    "location": "Kemintie - Kiertotien ramppi",
+    "lat": 65.02773056753573,
+    "lon": 25.47041140460347
+  },
+  {
+    "id": "OULU115",
+    "location": "Bertel Jungin tie - Koskelantie",
+    "lat": 65.03056513670438,
+    "lon": 25.450224349191682
+  },
+  {
+    "id": "OULU116",
+    "location": "Tulliväylä - Paulaharjuntie",
+    "lat": 65.02889764918221,
+    "lon": 25.496992774720564
+  },
+  {
+    "id": "OULU117",
+    "location": "Paulaharjuntie-Korjaamontie",
+    "lat": 65.02957332822417,
+    "lon": 25.491901033343982
+  },
+  {
+    "id": "OULU118",
+    "location": "Koskelantie - Tukkitie",
+    "lat": 65.0322274606001,
+    "lon": 25.448683793466305
+  },
+  {
+    "id": "OULU120",
+    "location": "Kuusamontie - Vaalantie",
+    "lat": 65.02977414541515,
+    "lon": 25.52735075350734
+  },
+  {
+    "id": "OULU122",
+    "location": "Kuusamontie - Typpitie",
+    "lat": 65.02705410437653,
+    "lon": 25.510069290455938
+  },
+  {
+    "id": "OULU123",
+    "location": "Kuusamontie - Pohjantien ramppi",
+    "lat": 65.02668024102998,
+    "lon": 25.503189833395435
+  },
+  {
+    "id": "OULU124",
+    "location": "Kuusamontie - Hintantie",
+    "lat": 65.02660909091723,
+    "lon": 25.497885893504993
+  },
+  {
+    "id": "OULU128",
+    "location": "Kainuuntie - Pohjantien ramppi",
+    "lat": 65.0050440165257,
+    "lon": 25.504273892028998
+  },
+  {
+    "id": "OULU129",
+    "location": "Kainuuntie - Professorintie",
+    "lat": 65.00359979946361,
+    "lon": 25.51063384282756
+  },
+  {
+    "id": "OULU130",
+    "location": "Kainuuntie - Joutsentie",
+    "lat": 64.99924328182497,
+    "lon": 25.520187596211933
+  },
+  {
+    "id": "OULU131",
+    "location": "Joutsentie - Kotkantie",
+    "lat": 64.99807169424858,
+    "lon": 25.512468732803402
+  },
+  {
+    "id": "OULU132",
+    "location": "Joutsentie - Nokelantie",
+    "lat": 64.99868962935341,
+    "lon": 25.490864268088444
+  },
+  {
+    "id": "OULU133",
+    "location": "Lintulammentie - Latokartanontie",
+    "lat": 64.99655776822667,
+    "lon": 25.485067539394716
+  },
+  {
+    "id": "OULU135",
+    "location": "Lintulammentie - Tavitie",
+    "lat": 64.9929658410854,
+    "lon": 25.48929991525073
+  },
+  {
+    "id": "OULU137",
+    "location": "Oulunlahdentie - Pirttilammentie",
+    "lat": 64.96174573979361,
+    "lon": 25.541956643994045
+  },
+  {
+    "id": "OULU138",
+    "location": "Oulunlahdentie - Palokankaantie",
+    "lat": 64.96301396787263,
+    "lon": 25.54500122972723
+  },
+  {
+    "id": "OULU139",
+    "location": "Kaakkurinojantie-suojatie",
+    "lat": 64.9585266830325,
+    "lon": 25.52944647516289
+  },
+  {
+    "id": "OULU140",
+    "location": "Lentokentäntie - Limingantie",
+    "lat": 64.9558339038515,
+    "lon": 25.505030652678336
+  },
+  {
+    "id": "OULU141",
+    "location": "Limingantie (Mt 847)-Perkkiöntie",
+    "lat": 64.9616953683235,
+    "lon": 25.502437291309015
+  },
+  {
+    "id": "OULU142",
+    "location": "Limingantie - Jukolantie",
+    "lat": 64.9677926412881,
+    "lon": 25.495634921659903
+  },
+  {
+    "id": "OULU143",
+    "location": "Limingantie (Mt 847) -Palokankaantie",
+    "lat": 64.97434468849619,
+    "lon": 25.48857066205489
+  },
+  {
+    "id": "OULU144",
+    "location": "Mt 847 - Huhtakalliontie",
+    "lat": 64.94606224443041,
+    "lon": 25.517810574083494
+  },
+  {
+    "id": "OULU145",
+    "location": "Lentokentäntie - Metsokankaantie",
+    "lat": 64.96008469559254,
+    "lon": 25.526353570908505
+  },
+  {
+    "id": "OULU146",
+    "location": "Lentokentäntie (Mt 815)-Rantavainiontie",
+    "lat": 64.9532867952641,
+    "lon": 25.498947698543645
+  },
+  {
+    "id": "OULU147",
+    "location": "Mt 847 - Oulunportti",
+    "lat": 64.95253881103679,
+    "lon": 25.50758582628313
+  },
+  {
+    "id": "OULU148",
+    "location": "Oulunlahdentie-Pohjantie, länsi",
+    "lat": 64.95873183943492,
+    "lon": 25.514822552642695
+  },
+  {
+    "id": "OULU149",
+    "location": "Oulunlahdentie-Pohjantie, itä",
+    "lat": 64.95968602421023,
+    "lon": 25.520530227308576
+  },
+  {
+    "id": "OULU150",
+    "location": "Haukiputaantie - Koskelantie",
+    "lat": 65.05914667774645,
+    "lon": 25.42838990244143
+  },
+  {
+    "id": "OULU151",
+    "location": "Haukiputaantie - Koisotie",
+    "lat": 65.0642020581974,
+    "lon": 25.414165238183855
+  },
+  {
+    "id": "OULU152",
+    "location": "Haukiputaantie - Elektroniikkatie",
+    "lat": 65.05614692302304,
+    "lon": 25.441915182747877
+  },
+  {
+    "id": "OULU153",
+    "location": "Linnanmaantie-Pohjantie (Vt 4), länsi",
+    "lat": 65.05526247618613,
+    "lon": 25.446621658688265
+  },
+  {
+    "id": "OULU154",
+    "location": "Linnanmaantie - Pohjantie (Vt 4), itä",
+    "lat": 65.05552143850218,
+    "lon": 25.452557990204095
+  },
+  {
+    "id": "OULU155",
+    "location": "Raitotie - Eränkävinjäntaival",
+    "lat": 65.07761201921294,
+    "lon": 25.46335817474198
+  },
+  {
+    "id": "Oulu156",
+    "location": "Raitotie-Ritaharjuntie",
+    "lat": 65.07852848289072,
+    "lon": 25.451264614956433
+  },
+  {
+    "id": "OULU157",
+    "location": "Raitotie-Pohjantie (Vt 4), itä",
+    "lat": 65.07864528993885,
+    "lon": 25.445216153980052
+  },
+  {
+    "id": "OULU158",
+    "location": "Raitotie-Pohjantie (Vt 4), länsi",
+    "lat": 65.07960418681415,
+    "lon": 25.438182231804827
+  },
+  {
+    "id": "OULU160",
+    "location": "Kemintie - Tervahovintie",
+    "lat": 65.03887602956436,
+    "lon": 25.46941172464219
+  },
+  {
+    "id": "OULU161",
+    "location": "Tervahovintie - Kaarnatie",
+    "lat": 65.03925865575174,
+    "lon": 25.465587472810583
+  },
+  {
+    "id": "OULU162",
+    "location": "Kemintie - Pohjantie, etelä",
+    "lat": 65.03999094302507,
+    "lon": 25.471365840166087
+  },
+  {
+    "id": "OULU163",
+    "location": "Kemintie - Pohjantie, pohj.",
+    "lat": 65.04199289563552,
+    "lon": 25.475818675131745
+  },
+  {
+    "id": "OULU164",
+    "location": "Alakyläntie - Menninkäisentie",
+    "lat": 65.04323729845677,
+    "lon": 25.47727725917906
+  },
+  {
+    "id": "OULU165",
+    "location": "Alakyläntie-Syynimaantie",
+    "lat": 65.04992060002792,
+    "lon": 25.477873382440034
+  },
+  {
+    "id": "OULU166",
+    "location": "Alakyläntie - Linnanmaantie",
+    "lat": 65.05561313204838,
+    "lon": 25.476358292150483
+  },
+  {
+    "id": "OULU167",
+    "location": "Linnanmaantie - Yliopistokatu",
+    "lat": 65.05570695282634,
+    "lon": 25.472356987598005
+  },
+  {
+    "id": "OULU168",
+    "location": "Alakyläntie - Kalevalantie",
+    "lat": 65.05889336200494,
+    "lon": 25.481208944591618
+  },
+  {
+    "id": "OULU170",
+    "location": "Koskelantie - Tervahovintie",
+    "lat": 65.03835093016532,
+    "lon": 25.44289017135607
+  },
+  {
+    "id": "OULU171",
+    "location": "Koskelantie - Ruittukuja",
+    "lat": 65.04292004194916,
+    "lon": 25.438672036376744
+  },
+  {
+    "id": "OULU173",
+    "location": "Koskelantie-Mustasuontie",
+    "lat": 65.04802604601434,
+    "lon": 25.436885845179457
+  },
+  {
+    "id": "OULU175",
+    "location": "Raitotie-Pöllöntie",
+    "lat": 65.06576076892814,
+    "lon": 25.503654160943007
+  },
+  {
+    "id": "OULU176",
+    "location": "Raitotie-Kalikkatie",
+    "lat": 65.067585419673,
+    "lon": 25.494089119918677
+  },
+  {
+    "id": "OULU179",
+    "location": "Poikkimaantie (Mt 8155) -Pohjantie, itäramppi",
+    "lat": 64.98625664139747,
+    "lon": 25.508440412222143
+  },
+  {
+    "id": "OULU180",
+    "location": "Limingantie - Äimäraution ramppi",
+    "lat": 64.98578479923525,
+    "lon": 25.475056508245117
+  },
+  {
+    "id": "OULU181",
+    "location": "Poikkimaantie - Lintulammentie",
+    "lat": 64.98545057869019,
+    "lon": 25.491632093542112
+  },
+  {
+    "id": "OULU182",
+    "location": "Poikkimaantie (Mt 8155) - Äimäraution ramppi",
+    "lat": 64.98399071161907,
+    "lon": 25.472508978515865
+  },
+  {
+    "id": "OULU183",
+    "location": "Poikkimaantie (Mt 8155) -Pohjantie, länsiramppi",
+    "lat": 64.98600523771135,
+    "lon": 25.503048563810257
+  },
+  {
+    "id": "OULU184",
+    "location": "Poikkimaantie - Kiilakiventie",
+    "lat": 64.98647957388988,
+    "lon": 25.51279514522812
+  },
+  {
+    "id": "OULU185",
+    "location": "Kainuuntie - Poikkimaantie",
+    "lat": 64.99119039229689,
+    "lon": 25.537235302135375
+  },
+  {
+    "id": "OULU186",
+    "location": "Kainuuntie - Maikkulantie",
+    "lat": 64.98076220521851,
+    "lon": 25.56128929884128
+  },
+  {
+    "id": "Oulu187",
+    "location": "Kainuuntie (Vt 22)-Sääskensuontie",
+    "lat": 64.97127733584023,
+    "lon": 25.61165262804762
+  },
+  {
+    "id": "OULU188",
+    "location": "Oulunsuuntie - Kasarmintie",
+    "lat": 65.01647945341199,
+    "lon": 25.529760075206184
+  },
+  {
+    "id": "OULU189",
+    "location": "Parkkisenkankaantie - Sangintie",
+    "lat": 65.0195670769941,
+    "lon": 25.535278728434104
+  },
+  {
+    "id": "OULU190",
+    "location": "Vaalantie - Parkkisenkankaantie",
+    "lat": 65.02460024760661,
+    "lon": 25.544301447443985
+  },
+  {
+    "id": "OULU191",
+    "location": "Vaalantie - Koivumaantie",
+    "lat": 65.02033903094934,
+    "lon": 25.55372465275216
+  },
+  {
+    "id": "OULU192",
+    "location": "Parkkisenkankaantie - Maanmittarintie",
+    "lat": 65.03090968275694,
+    "lon": 25.553576919720005
+  },
+  {
+    "id": "OULU193",
+    "location": "Raitotie - Konetie",
+    "lat": 65.04183141385145,
+    "lon": 25.54244833532721
+  },
+  {
+    "id": "OULU194",
+    "location": "Raitotie - Kuusamontien eteläramppi",
+    "lat": 65.03702412440288,
+    "lon": 25.55107922721101
+  },
+  {
+    "id": "OULU195",
+    "location": "Raitotie-Vt 20 pohjoisramppi",
+    "lat": 65.03880050891232,
+    "lon": 25.548242714818183
+  },
+  {
+    "id": "OULU196",
+    "location": "Raitotie-Kiilletie",
+    "lat": 65.04698843395803,
+    "lon": 25.53383758313407
+  },
+  {
+    "id": "OULU197",
+    "location": "Vaalantie (Mt 8300) - Soittokunnantie",
+    "lat": 65.00175078535706,
+    "lon": 25.585401932325972
+  },
+  {
+    "id": "OULU198",
+    "location": "Vaalantie - Puntarikankaantie",
+    "lat": 65.01357699811135,
+    "lon": 25.56726880411776
+  },
+  {
+    "id": "OULU199",
+    "location": "Liitintie-Vt 20 pohjoisramppi (Tapsitie)",
+    "lat": 65.04708455719373,
+    "lon": 25.57630637990052
+  },
+  {
+    "id": "OULU35",
+    "location": "Limingantie - Joutsentie",
+    "lat": 64.99655433474943,
+    "lon": 25.464517172732485
+  },
+  {
+    "id": "OULU38",
+    "location": "Puistokatu - Aleksanterinkatu",
+    "lat": 65.00584535467797,
+    "lon": 25.456006581474224
+  },
+  {
+    "id": "OULU39",
+    "location": "Aleksanterinkatu - Albertinkatu",
+    "lat": 65.01123181227044,
+    "lon": 25.46399236822012
+  },
+  {
+    "id": "OULU51",
+    "location": "Kastellin Häkki",
+    "lat": 65.0088304662328,
+    "lon": 25.52767710734645
+  },
+  {
+    "id": "OULU54",
+    "location": "Kajaanintie - Maasälväntie",
+    "lat": 64.99348001616193,
+    "lon": 25.56136875689596
+  },
+  {
+    "id": "Oulu6",
+    "location": "Uusikatu - Kauppurienkatu",
+    "lat": 65.01073362778494,
+    "lon": 25.474057722492432
+  },
+  {
+    "id": "OULU67",
+    "location": "Lintulammentie - Takalyötynkatu",
+    "lat": 65.00244635662776,
+    "lon": 25.4798762459782
+  },
+  {
+    "id": "RA08LV",
+    "location": "Raahe, Valtatie (vt 8) - Kantatie (kt 88)",
+    "lat": 64.66199571700821,
+    "lon": 24.471737033195733
+  },
+  {
+    "id": "RA09LV",
+    "location": "Raahe, Valtatie (vt 8) - Ouluntie (Mt 8104)",
+    "lat": 64.68542144458225,
+    "lon": 24.545871477337172
+  },
+  {
+    "id": "RA10LV",
+    "location": "Raahe, Valtatie (vt 8) - Siikajoentie (Mt 813)",
+    "lat": 64.68660029947965,
+    "lon": 24.568876756753454
+  },
+  {
+    "id": "YL01LV",
+    "location": "Ylivieska, Savontie (Vt 27) -Tulolantie, Ylivieska",
+    "lat": 64.06521011141562,
+    "lon": 24.549199667035662
+  },
+  {
+    "id": "YL02LV",
+    "location": "Ylivieska, Savontie (Vt 27) -Ollilanojankatu, Ylivieska",
+    "lat": 64.0636777330626,
+    "lon": 24.56005740877399
+  },
+  {
+    "id": "YL03LV",
+    "location": "Ylivieska, Savontie (Vt 27) - Hakatie",
+    "lat": 64.06459355204301,
+    "lon": 24.552042361083085
+  },
+  {
+    "id": "YL08LV",
+    "location": "Ylivieska, Savontie (Vt 27) - Tehdastie",
+    "lat": 64.06384517178503,
+    "lon": 24.571667960911725
+  },
+  {
+    "id": "YL09LV",
+    "location": "Ylivieska, Savontie (Vt 27) - Palkkitie",
+    "lat": 64.06448187738671,
+    "lon": 24.584017045787736
+  },
+  {
+    "id": "SO01LV",
+    "location": "Sotkamo, Kainuuntie (Kt 76) - Akkoniementie",
+    "lat": 64.13030362408995,
+    "lon": 28.379624756601416
+  },
+  {
+    "id": "SO02LV",
+    "location": "Sotkamo, Kainuuntie (Kt 76) - Torikatu",
+    "lat": 64.13052894607166,
+    "lon": 28.384258419269624
+  },
+  {
+    "id": "SO03LV",
+    "location": "Sotkamo, Kainuuntie (Kt 76) - Keskuskatu",
+    "lat": 64.13083012555954,
+    "lon": 28.39033407595487
+  }
+]
