@@ -3,16 +3,26 @@
 <head>
     <meta charset="utf-8">
     <title>Leaflet</title>
-    <style> #map {height: 500px; width: 500px;}</style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+    <link rel="stylesheet" href="traffic-map.css"/>
 </head>
 <body>
     <div id="map"></div>
-    <script src="./traffic-map.js"></script>
+    
+    <div id="stats">
+        <div class="card">Longest waiting time
+            <p class="info" id="wait"></p>
+        </div>
+        <div class="card">Busiest intersections
+            <p class="info" id="queue"></p>
+        </div>
+    </div>
+    <script type="module" src="./traffic-map.js"></script>
+
 </body>
 </html>

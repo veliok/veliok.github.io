@@ -1,70 +1,86 @@
-const apiUrl = "https://api.oulunliikenne.fi/tpm/kpi/traffic-volume";
-const locationFile = "intersections.json";
+let trafficData = [];
 
-// Leaflet circle properties by traffic volume
-function getCircle(value) {
+// Leaflet circle properties by queue length
+function getCircle(queue) {
     let cColor, cFillColor, cRadius;
-
-    if (value >= 200 && value < 300) {
-        cColor = "yellow";
-        cFillColor = "yellow";
-        cRadius = 10;
+    
+    if (queue <= 10) {
+        cColor = "green"; cFillColor = "green"; cRadius = 5;
     }
-    if (value >= 300 && value < 1000) {
-        cColor = "orange";
-        cFillColor = "orange";
-        cRadius = 20;
+    if (queue >= 10 && queue < 25) {
+        cColor = "yellow"; cFillColor = "yellow"; cRadius = 10;
     }
-    if (value >= 1000) {
-        cColor = "red";
-        cFillColor = "red";
-        cRadius = 30;
+    if (queue >= 25 && queue < 50) {
+        cColor = "orange"; cFillColor = "orange"; cRadius = 20;
+    }
+    if (queue > 50) {
+        cColor = "red"; cFillColor = "red"; cRadius = 30;
     } 
     return {color: cColor, fillColor: cFillColor, radius: cRadius};
 }
 
 // Load intersection coordinates from file
-async function loadLocationData(trafficData) {
-    const response = await fetch(locationFile);
+async function loadLocationData() {
+    const response = await fetch("intersections.json");
     const locations = await response.json();
 
     locations.forEach(element => {
-        trafficData.push({id: element.id, location: element.location, lat: element.lat, lon: element.lon, value: 0});
+        trafficData.push({id: element.id, location: element.location, lat: element.lat, lon: element.lon, queue: 0, time: 0});
     });
 }
 
-// Traffic volume from API
-async function fetchTrafficData(trafficData) {
+// Traffic queue length and wait time from API
+async function fetchTrafficData() {
     try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+        const response1 = await fetch("https://api.oulunliikenne.fi/tpm/kpi/queue-length")
+        if (!response1.ok) {
+            throw new Error(`Queue status: ${response1.status}`);
         }
-        traffic = await response.json();
+        let queue = await response1.json();
 
-        traffic.forEach(location => {
-            const entry = trafficData.find(d => d.id === location.devName);
-            if (!entry) return;
+        const response2 = await fetch("https://api.oulunliikenne.fi/tpm/kpi/wait-time")
+        if (!response2.ok) {
+            throw new Error(`Time status: ${response2.status}`);
+        }
+        let time = await response2.json();
 
-            let total = 0;
-            location.values.forEach(element => {
-                if (element.name === "trafficVolume") {
-                    total = total + element.value;
-                }
-            })
-            entry.value = total;
-        });
+        parseAverage(queue);
+        parseAverage(time);
 
     } catch (error) {
-        console.error(error.message);
+        console.error(`${error.name}: ${error.message}`);
     }
 }
 
+// Each intersection has multiple sensors, this calculates intersection average values
+function parseAverage(data) {
+    data.forEach(location => {
+        const entry = trafficData.find(d => d.id === location.devName);
+        if (!entry) return;
+
+        let totalWaitTime = 0;
+        let totalQueue = 0;
+        let waitTimeCount = 0;
+        let queueCount = 0;
+
+        location.values.forEach(element => {
+            if (element.name === "avgWaitTime") {
+                totalWaitTime += element.value;
+                waitTimeCount++;
+            }
+            else if (element.name === "avgQueueLength") {
+                totalQueue += element.value;
+                queueCount++;
+            }
+        })
+        if (waitTimeCount) entry.time = totalWaitTime / waitTimeCount;
+        if (queueCount) entry.queue = totalQueue / queueCount;
+    });
+}
+
 async function createMap() {
-    let trafficData = [];
-    let circleProperties = [];
-    await loadLocationData(trafficData);
-    await fetchTrafficData(trafficData);
+    await loadLocationData();
+    await fetchTrafficData();
 
     let map = L.map("map").setView([65.0122, 25.464], 11);
 
@@ -75,26 +91,41 @@ async function createMap() {
     }).addTo(map);
 
     trafficData.forEach(element => {
-        circleProperties = getCircle(element.value);
+        let circleProperties = getCircle(element.queue);
 
-        let cColor = circleProperties.color;
-        let cFillColor = circleProperties.fillColor;
-        let cRadius = circleProperties.radius;
-
-        // Create circle and add to map
+        // Create circle
         let circle = L.circleMarker([element.lat, element.lon], {
-            color: cColor,
-            fillColor: cFillColor,
+            color: circleProperties.color,
+            fillColor: circleProperties.fillColor,
             opacity: 0.8,
-            radius: cRadius,
+            radius: circleProperties.radius,
             interactive: true
-        }).addTo(map);
+        });
+
+        circle.addTo(map);
 
         // Clickable marker info
-        circle.bindPopup(`<b>Intersection: </b> ${element.location} </br>
-            <b>Traffic during last 5 minutes: </b> ${element.value}`
-        );
+        circle.bindPopup(`
+            <b>Intersection: </b> ${element.location}<br>
+            <b>Averages over the last 5 minutes:</b><br>
+            <b>Waiting time: </b> ${element.time.toFixed(2)}<br>
+            <b>Queue length: </b> ${element.queue.toFixed(2)}
+        `);
     });
+    updateHTML();
+}
+
+function updateHTML() {
+    let time = 0;
+    let queue = 0;
+    let timeLocation = "";
+    let queueLocation = "";
+    trafficData.forEach(element => {
+        if (element.time > time) time = element.time; timeLocation = element.location;
+        if (element.queue > queue) queue = element.queue; queueLocation = element.location;
+    })
+    document.getElementById("wait").innerHTML = timeLocation + " : " + time.toFixed(2);
+    document.getElementById("queue").innerHTML = queueLocation + " : " + queue.toFixed(2);
 }
 
 createMap();
