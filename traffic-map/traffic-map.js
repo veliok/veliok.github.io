@@ -108,24 +108,21 @@ async function createMap() {
         circle.bindPopup(`
             <b>Intersection: </b> ${element.location}<br>
             <b>Averages over the last 5 minutes:</b><br>
-            <b>Waiting time: </b> ${element.time.toFixed(2)}<br>
-            <b>Queue length: </b> ${element.queue.toFixed(2)}
+            <b>Waiting time: </b> ${element.time.toFixed(2)}s<br>
+            <b>Queue length: </b> ${element.queue.toFixed(2)} vehicles
         `);
     });
     updateHTML();
 }
 
 function updateHTML() {
-    let time = 0;
-    let queue = 0;
-    let timeLocation = "";
-    let queueLocation = "";
-    trafficData.forEach(element => {
-        if (element.time > time) time = element.time; timeLocation = element.location;
-        if (element.queue > queue) queue = element.queue; queueLocation = element.location;
-    })
-    document.getElementById("wait").innerHTML = timeLocation + " : " + time.toFixed(2);
-    document.getElementById("queue").innerHTML = queueLocation + " : " + queue.toFixed(2);
+    let byTime = trafficData.toSorted((b, a) => a.time - b.time);
+    let byQueue = trafficData.toSorted((b, a) => a.queue - b.queue);
+
+    for (let i = 0; i < 10; i++) {
+        document.getElementById("wait").innerHTML += byTime[i].location + "<br>" + byTime[i].time.toFixed(2) + "s<br>";
+        document.getElementById("queue").innerHTML += byQueue[i].location + "<br>" + byQueue[i].queue.toFixed(2) + " vehicles<br>";
+    }
 }
 
 createMap();
