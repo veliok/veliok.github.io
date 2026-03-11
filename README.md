@@ -1,110 +1,197 @@
-## Rannikko- ja merinavigaatio säällä
+# Kutosalisovellus
 
-### Suunnitelma ja markkinatilanne
+## Suunnitelma ja markkinatilanne
 
-Hieno merinavigaattori, merisää, ja karttatiedot yhdistettynä.
+Ainakin päiväkirjamallinen treenien seuranta ja tilastot.
+Miten lisätä mukaan mahdollisesti sensoreita tai apia? Ei tietenkään ole pakko.
 
-___
-Kilpailua on kansaivälisellä tasolla paljon, mutta tod näk vähemmän, kuin kuntosalisovelluksella. Kokonaismalli ja ansaintamalli olisi myös helpompi kuvitella.
-Useimmilla sovelluksilla on heikkouksia, huonoja arvosteluja, ja maksuja valitellaan. Suoraan Suomen markkinoille ei taida olla kuin yksi vaihtoehto, <https://www.digitraffic.fi/en/applications/>. Yksi erottuva malli voisi olla offline käytettävyys, jossa kartta ja tulevien tuntien sääennusteet ovat muistissa. Ei ole monta sovellusta, jotka yhdistävät navigaation, kartan, sään ja liikenteen, nämä kaikki on kylläkin liikaa projektin aikajaksolle.
-Monet sovellukset kuten markkinajohtaja käyttää vanhentunutta UI:ta ja karttateknologiaa. En tiedä onko Väyläviraston merikartta tarkempi kuin kansainväliset, mutta yhdistämällä sen ja esim Ilmatieteenlaitoksen, voisi saada paikallisesti paikkaansa pitävän karttasovelluksen tehtyä? Kasuaalille veneilijälle koko maailman karttatietosovellus on ehkä overkill, jos sen suuntaisi vain itämerelle olisiko kysyntää?
-AI:n mukaan profittia olisi vaikea tehdä ja kilpailua isoilla markkinoilla liikaa.
 
-Tällä hetkellä suosituimmat sovellukset:
+Tällä hetkellä suosituimpia samankaltaisia sovelluksia:
 
-**Nautics Sailmate**:
-- <https://play.google.com/store/apps/details?id=fi.nautics.hybridsailmate>
-- Suomalainen, paskat arvostelut, ruma.
+**Strong**:
+- <https://play.google.com/store/apps/details?id=io.strongapp.strong>
+- Käyttöliittymässä parantamisen varaa, ehkä liikaa näytöllä.
 
-**Skippo**:
-- <https://play.google.com/store/apps/details?id=com.merella>
-- Pohjoismaiden johtaja, ihan hieno, ristiriitaisia arvosteluja.
+**JEFIT**:
+- <https://play.google.com/store/apps/details/JEFIT_Gym_Workout_Plan_Tracker?id=je.fit>
+- Ok, turhia ominaisuuksia. Iso liikekirjasto.
 
-**Navionics Boating**:
-- <https://play.google.com/store/apps/details?id=it.navionics.singleAppMarineLakesHD>
-- Markkinajohtaja, paskat arvostelut, ruma kuin mikä, *useless without subscription* eli kartta-alueet maksaa 20-50€ vuodessa.
+**Fitbod**:
+- <https://play.google.com/store/apps/details?id=com.fitbod.fitbod>
+- AI-sovellus. Hyvä selkeä käyttöliittymä.
 
-**Windy**:
+**Hevy**:
 - <https://play.google.com/store/apps/details?id=com.windyty.android>
-- Parhaat säätiedot, mutta ei taida olla navigaatiota?, hieno.
+- Ok näköinen, muutamia hyviä ominaisuuksia kuten painon seuranta.
 
-**C-MAP Boating**:
-- <https://play.google.com/store/apps/details?id=com.isea.Embark>
-- Hyvät arvostelut, voisi olla hienompi.
+Useimpien sovellusten tilastojen visualisointi on minimaalista, tai rumahkoa. UI:t ovat myös täyteen tupattuja,
+paljon ominaisuuksia, joita ei moni käytä. Teknisesti sovellukset on hyvin yksinkertaisia, jonka takia niitä on paljon.
 
-**Savvy Navvy**:
-- <https://play.google.com/store/apps/details?id=com.savvy.navvy.android.app>
-- Käytännössä google maps merenkäynnille.
+## Ominaisuudet
+- **Liikekirjasto**:
+    - luonti/poisto/editointi.
+- **Treenikirjasto**: 
+    - luonti/poisto/editointi.
+- **Treenin seuranta**:
+    - sarjat/painot/toistot per liike.
+    - ajastin?
+- **Tilastot**:
+    - edistymisen seuranta per liike.
+    - painon seuranta?
+    - maksiminoston laskuri?
+    - voluumin seuranta?
 
-**Orca**:
-- <https://play.google.com/store/apps/details?id=com.theorca.slate>
-- Simppeli, navigaatiota haukutaan, ilmaisversiota kehutaan.
+## Projektin rakenne suositelma
+Kaikkea näistä ei tarvitse toteuttaa, ideaalinen toteutus.
+```
+src
+ ├── components     uudellenkäytettävät UI-palaset (listat, kortit, napit...)
+ ├── screens        sivut/näkymät (esim. HomeScreen.tsx)
+ ├── navigation     navigaation konfiguraatio (Tab/Stack)
+ ├── hooks          custom hookit, yhdistävät UI:n ja datan (esim. useWorkout.ts)
+ ├── store          globaalit tilat (context tai zustand)
+ ├── database       tietokannan alustus, skeema, yhteys, CRUD
+ ├── services       loogiset funktiot
+ ├── utils          apufunktiot (esim. calculateBMI.ts)
+ ├── types          datatyypit (esim. Type Wokout{})
+ └── theme          provider teemalle
+```
 
+### Components
+Uudelleenkäytettävät UI-komponentit. Käyttöliittymä pysyy yhtenäisenä, jos elementit jakaa komponentteihin.
+Komponentteja on karkeasti kahden tyylisiä, *stateless* ja *stateful*.
 
-Aikataulusta riippuen navigaatio ja hienot säätiedot kartalla olisi minimi. JOS ehtii niin mukaan sopisi reaaliaikainen meriliikenne, siihen liittyy kuitenkin runsaasti riippuen paljonko tietoa haluaa näyttää. Mietinnän alaiset/extrajutut merkattu *sulkeilla*. Karttatietoja voisi klikkailla asetuksista, mitä kaikkea haluaa nähdä.
+- **Stateless**
+    - Ei sisällä monimutkaista logiikkaa.
+    - Ottaa vastaan datan propsina ja näyttää sen.
+    - Esim: ```JokuButton.tsx```, jota käytetään useassa paikkaa UI:ssa.
 
-### Kriteereistä toteutuu
-- **Api**: Yhdistää useita eri rajapintoja, ehkä
-- **Sensorit**: GPS, kompassi
-- **Kartta**
-- *(Backend)*: Varmaan välttämätön datan yhdistämiseen, jotta sen voi hakea helposti sovellukseen
-- **Matematiikka**: Ainakin navigointi 
+- **Stateful**
+    - Hallitsee omaa tilaansa (```useState```) tai käyttää hookkeja.
+    - Esim. komponentti, joka: hakee treenin -> tallentaa tilaan -> antaa *stateless*-komponentille näytettäväksi.
 
-### Rajapinnat
-- **Sää:** FMI/YR/OpenWeatherMap
-- **Merikartta**: Väylävirasto vesiväyläverkko/OpenSeaMap
-- *(Meriliikenne)*: Traficom
-
-### GPS
-- Helppo toteuttaa kartalle samalla tavalla kuin kurssilla. Jos haluaa kuljetun reitin, niin siitä pitää tallentaa tietoa ja piirtää kartalle.
-
-### Kartta
-Ideana toimisi siis niin, että on pohjakartta kuten kurssitehtävässä. Sen päälle saa lisättyä *layerina/rasterina* WMS/WFS *tile*-tyyppistä dataa, kuten väylät, syvyydet, merkit yms.
-
-#### Pohjakartaksi on vaihtoehtoja: 
-
-**React Native Maps**:
-- Tuttu tehtävästä
-- Ei suoraan tue kovin hyvin WFS/WMS-karttatietoja, jota suomalaiset rajapinnat palauttaa. Voi yhdistää *tile layerina*, mutta esim interaktiiviset jutut ja klikkaukset monimutkaista tehdä.
-
-**Leaflet**
-- Tukee suoraan datamuotoa
-- Tarvii yhdistää WebViewiin(no idea mikä on)
-- Huonompi suorituskyky
-- <https://leafletjs.com/>
-
-**MapLibre**
-- Paras suorityskyky
-- Tukee dataa jotenkin
-- Epätuttu
-- <https://maplibre.org/>
-
-#### Summaus kartoista
-React Native Mapsilla saa totetutettua yksinkertaisen navigaatiokartan helposti, MapBoxia/MapLibre suositellaan eniten, jos haluaa hyvän merikartan. MapLibre on suositellun MapBoxin ilmainen open-source fork.
-OpenSeaMapilla saa helposti jonkunlaiset tiedot pohjakartan päälle, Väylävirastolta saa tarkemmat tiedot Suomen vesille. Periaatteessa backendiä ei saata tarvia, jos käyttää vain MapLibre+OpenSeaMap yhdistelmää ilman tarkempia tietoja ja sään hakee välimuistin kansa. Väyläviraston data on niin runsasta, että pitäisi miettiä onko järkevää hakea sitä kerralla.
+Jos pyrkii siihen, että mahdollisimman moni komponentti on *stateless*, UI:n tekeminen ja muokkaaminen helpottuu.
+Eli ei yhtä komponenttia, joka tekee kaiken: hakee, muuttaa ja näyttää. 
 
 
-## Rajapintojen mahdollisuudet
-### **Väylävirasto**
-- Vesiväylät, vesiliikennemerkit, majakat, laiturit, ruoppaukset, aika kattavasti kaikki:
+### Screens
+Mitä näkymiä tarvitaan/halutaan, ainakin:
+- Treenisessio
+- Liikekirjasto
+- Tilastot
+- Asetukset?
 
-<https://avoinapi.vaylapilvi.fi/vaylatiedot/ogc/features/v1/collections?f=text%2Fhtml>
+### Navigation
+Käytetäänkö esim. ``BottomTab``-navigaatiota, se on ainakin yksinkertainen toteuttaa?
+Esim: <https://github.com/veliok/mobile-hybrid-week8/blob/main/navigation/Tabs.tsx>
 
-### **Merisää**
-- Useita eri vaihtoehtoja:
+### Store
+**Ei välttämätön, mutta voi hyödyttää**.
 
-OpenWeatherMap oli helppo, FMI tiedot WFS muodossa, YR vaatii headereita ja omaa palvelinta *oikeaan* käyttöön. Varmaan muitakin on paljon.
+Säilytetään tilat, joita tarvitaan useammalla screenillä. Esim. treenien tilaa voi tarvita monessa paikkaa.
+Ilman tämmöistä tulee sitä *prop-drillausta*, eli jotain tilaa välitetään propsina komponentilta toiselle, vaikka tarvittaisiin vain viimeisessä välitettävässä. Tämä on siis käytännössä joko ``Zustand``-kirjasto tai Reactin omia ``useContext`` funktioita.
+Minimaalinen esimerkki ilman:
+``WorkoutCard`` tarvii tiedon asetuksista, tila välitetään:
+ - ```App``` -> ```MainScreen``` -> ```WorkoutCard```
+Esimerkki storella:
+ - ```WorkoutCard``` ottaa suoraan storesta.
 
-### **(Traficom/Digitraffic)**: 
-Vain jos toteuttaa liikenteen seurauksen.
-- Vesikulkuneuvojen sijainti- ja tekniset tiedot.
+### Database
+- Tietokannan tiedosto(alustus, skeema, yms.)
+- Repositoryt (CRUD SQL funktiot)
+- Migraatiot, jos tarvitaan.
 
-<https://asiointi.traficom.fi/asiointi/tietotuotteet/vesikulkuneuvojen-tietotuotteet>
+### Services
+Esimerkiksi ``exerciseService.ts`` sisältäisi funktiot:
+ - Uuden liikkeen luomiselle
+ - Editoinnille
+ - Poistamiselle
 
-- Kaikki suomen aluella rekisteröidyt alukset:
+Näitä funktioita voisi sitten käyttää screeneillä tyyliin:
+``exerciseService.createExercise(data);``
 
-<https://tieto.traficom.fi/fi/tietotraficom/avoin-data>
+### Utils
+Hyödylliset apufunktiot jos tarvii, esim:
+ - ``dateUtils.ts``
+  - Muuttaa päivämäärän tiettyyn muotoon.
 
-- Vesiliikenne yms:
+### Types
+Pitkin ohjelmaa tarvittavat datatyypit, esim:
+```
+export type Exercise = {
+    id: string;
+    name: string;
+    group/category: string;
+}
+```
 
-<https://www.digitraffic.fi/meriliikenne/>
+### Theme
+Sovelluksella kannattaa olla ```useContext``` ```Provider```, josta jokainen komponentti saa perustyylin: värit, fontin, spacing, teema, jne. Ei tarvi tehdä styleä jokaiselle komponentille erikseen.
+
+## UI
+Halutaanko tehdä aivan omannäköinen sovellus, vai käyttää valmiita kirjastoja. Esim. ```Paper``` ja ```Material``` kirjastoilla saa helposti ulkoasusta modernin ja semmoisen ettei mikään pistä silmään. Toisaalta se voi olla sitten geneerinen.
+
+## Tilastot
+Tähän tarvii miettiä mitä kaikkea halutaan näyttää ja myös UI:n osalta, onko jossain kirjastossa hyviä datan visualisointityökaluja.
+
+## Tietokanta/käyttäjätiedot
+Varmaan SQLite, koska tarvii toisiinsa liittyvää tietoa. Muuhun dataan voi käyttää AsyncStorage, kuten asetusten tallettamiseen.
+Tietokannan rakenne minimitoimintaan:
+```
+workout(treenit)
+- workoutId, name
+
+exercise(yksittäiset liikkeet)
+- exerciseId, name, category
+
+workout_history(historiataulu)
+- historyId, exerciseId, weight, reps, date, sessionId
+
+workout_exercise(liitostaulu, mitä liikkeitä treenissä on)
+- workoutId, exerciseId
+```
+**Tarvittaessa tähän voisi lisätä taulun, johon yksittäinen treenisessio talletetaan:**
+```
+workout_session
+- sessionId, workoutId, date
+```
+
+### SQLite
+Esimerkki Kotlinilla toimivasta tietokannasta, Reactia varten voi tarvia pieniä muutoksia.
+```
+DROP TABLE IF EXISTS workout_history;
+DROP TABLE IF EXISTS workout;
+DROP TABLE IF EXISTS exercise;
+DROP TABLE IF EXISTS workout_exercise;
+
+CREATE TABLE exercise (
+    exerciseId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL
+);
+
+CREATE TABLE workout (
+    workoutId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE workout_exercise (
+    workoutId INTEGER NOT NULL,
+    exerciseId INTEGER NOT NULL,
+    PRIMARY KEY(workoutId, exerciseId),
+    FOREIGN KEY(workoutId) REFERENCES workout(workoutId) ON DELETE CASCADE,
+    FOREIGN KEY(exerciseId) REFERENCES exercise(exerciseId) ON DELETE CASCADE
+);
+
+CREATE TABLE workout_history (
+    historyId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    exerciseId INTEGER NOT NULL,
+    weight REAL NOT NULL,
+    reps INTEGER NOT NULL,
+    date INTEGER NOT NULL,
+    sessionId INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS index_workout_exercise_workoutId ON workout_exercise(workoutId);
+CREATE INDEX IF NOT EXISTS index_workout_exercise_exerciseId ON workout_exercise(exerciseId);
+```
