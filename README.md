@@ -22,14 +22,12 @@ Tällä hetkellä suosituimpia samankaltaisia sovelluksia:
 - <https://play.google.com/store/apps/details?id=com.windyty.android>
 - Ok näköinen, muutamia hyviä ominaisuuksia kuten painon seuranta.
 
-Useimpien sovellusten tilastojen visualisointi on minimaalista, tai rumahkoa. UI:t ovat myös täyteen tupattuja,
+> Useimpien sovellusten tilastojen visualisointi on minimaalista, tai rumahkoa. UI:t ovat myös täyteen tupattuja,
 paljon ominaisuuksia, joita ei moni käytä. Teknisesti sovellukset on hyvin yksinkertaisia, jonka takia niitä on paljon.
 
 ## Ominaisuudet
-- **Liikekirjasto**:
-    - luonti/poisto/editointi.
-- **Treenikirjasto**: 
-    - luonti/poisto/editointi.
+- **Liikekirjasto**: luonti/poisto/editointi.
+- **Treenikirjasto**: luonti/poisto/editointi.
 - **Treenin seuranta**:
     - sarjat/painot/toistot per liike.
     - ajastin?
@@ -40,7 +38,7 @@ paljon ominaisuuksia, joita ei moni käytä. Teknisesti sovellukset on hyvin yks
     - voluumin seuranta?
 
 ## Projektin rakenne suositelma
-Kaikkea näistä ei tarvitse toteuttaa, ideaalinen toteutus.
+> Kaikkea näistä ei tarvitse toteuttaa, ideaalinen toteutus.
 ```
 src
  ├── components     uudellenkäytettävät UI-palaset (listat, kortit, napit...)
@@ -54,37 +52,45 @@ src
  ├── types          datatyypit (esim. Type Wokout{})
  └── theme          provider teemalle
 ```
-___
+
 ### Components
 Uudelleenkäytettävät UI-komponentit. Käyttöliittymä pysyy yhtenäisenä, jos elementit jakaa komponentteihin.
 Komponentteja on karkeasti kahden tyylisiä, *stateless* ja *stateful*.
 
-- **Stateless**
-    - Ei sisällä monimutkaista logiikkaa.
-    - Ottaa vastaan datan propsina ja näyttää sen.
-    - Esim: ```JokuButton.tsx```, jota käytetään useassa paikkaa UI:ssa.
+**Stateless**
+- Ei sisällä monimutkaista logiikkaa.
+- Ottaa vastaan datan propsina ja näyttää sen.
+- Esim: ```JokuButton.tsx```, jota käytetään useassa paikkaa UI:ssa.
 
-- **Stateful**
-    - Hallitsee omaa tilaansa (```useState```) tai käyttää hookkeja.
-    - Esim. komponentti, joka: hakee treenin -> tallentaa tilaan -> antaa *stateless*-komponentille näytettäväksi.
+**Stateful**
+- Hallitsee omaa tilaansa (```useState```) tai käyttää hookkeja.
+- Esim. komponentti, joka: hakee treenin -> tallentaa tilaan -> antaa *stateless*-komponentille näytettäväksi.
 
-Jos pyrkii siihen, että mahdollisimman moni komponentti on *stateless*, UI:n tekeminen ja muokkaaminen helpottuu.
+> Jos pyrkii siihen, että mahdollisimman moni komponentti on *stateless*, UI:n tekeminen ja muokkaaminen helpottuu.
 Eli ei yhtä komponenttia, joka tekee kaiken: hakee, muuttaa ja näyttää. 
-___
+
+---
 
 ### Screens
+
 Mitä näkymiä tarvitaan/halutaan, ainakin:
 - Treenisessio
 - Liikekirjasto
 - Tilastot
 - Asetukset?
-___
+
+---
+
 ### Navigation
+
 Käytetäänkö esim. ``BottomTab``-navigaatiota, se on ainakin yksinkertainen toteuttaa?
-Esim: <https://github.com/veliok/mobile-hybrid-week8/blob/main/navigation/Tabs.tsx>
-___
+Esim: [veliok/mobile-hybrid-week8](https://github.com/veliok/mobile-hybrid-week8/blob/main/navigation/Tabs.tsx)
+
+---
+
 ### Store
-**Ei välttämätön, mutta voi hyödyttää**.
+
+> **Ei välttämätön, mutta voi hyödyttää**.
 
 Säilytetään tilat, joita tarvitaan useammalla screenillä. Esim. treenien tilaa voi tarvita monessa paikkaa.
 Ilman tämmöistä tulee sitä *prop-drillausta*, eli jotain tilaa välitetään propsina komponentilta toiselle, vaikka tarvittaisiin vain viimeisessä välitettävässä. Tämä on siis käytännössä joko ``Zustand``-kirjasto tai Reactin omia ``useContext`` funktioita.
@@ -93,70 +99,88 @@ Minimaalinen esimerkki ilman:
  - ```App``` -> ```MainScreen``` -> ```WorkoutCard```
 Esimerkki storella:
  - ```WorkoutCard``` ottaa suoraan storesta.
-___
+
+---
+
 ### Database
+
 - Tietokannan tiedosto(alustus, skeema, yms.)
 - Repositoryt (CRUD SQL funktiot)
 - Migraatiot, jos tarvitaan.
-___
+
+---
+
 ### Services
+
 Esimerkiksi ``exerciseService.ts`` sisältäisi funktiot:
  - Uuden liikkeen luomiselle
  - Editoinnille
  - Poistamiselle
 
 Näitä funktioita voisi sitten käyttää screeneillä tyyliin:
-``exerciseService.createExercise(data);``
-___
-### Utils
-Hyödylliset apufunktiot jos tarvii, esim:
- - ``dateUtils.ts``
-  - Muuttaa päivämäärän tiettyyn muotoon.
-___
-### Types
-Pitkin ohjelmaa tarvittavat datatyypit, esim:
+
+```ts
+exerciseService.createExercise(data);
 ```
+
+---
+
+### Utils
+
+Hyödylliset apufunktiot jos tarvii, esim:
+- `dateUtils.ts` — muuttaa päivämäärän tiettyyn muotoon.
+
+---
+
+### Types
+
+Pitkin ohjelmaa tarvittavat datatyypit, esim:
+```ts
 export type Exercise = {
     id: string;
     name: string;
     group/category: string;
 }
 ```
-___
+
+---
+
 ### Theme
 Sovelluksella kannattaa olla ```useContext``` ```Provider```, josta jokainen komponentti saa perustyylin: värit, fontin, spacing, teema, jne. Ei tarvi tehdä styleä jokaiselle komponentille erikseen.
+
+---
 
 ## UI
 Halutaanko tehdä aivan omannäköinen sovellus, vai käyttää valmiita kirjastoja. Esim. ```Paper``` ja ```Material``` kirjastoilla saa helposti ulkoasusta modernin ja semmoisen ettei mikään pistä silmään. Toisaalta se voi olla sitten geneerinen.
 
+---
+
 ## Tilastot
 Tähän tarvii miettiä mitä kaikkea halutaan näyttää ja myös UI:n osalta, onko jossain kirjastossa hyviä datan visualisointityökaluja.
+
+---
 
 ## Tietokanta/käyttäjätiedot
 Varmaan SQLite, koska tarvii toisiinsa liittyvää tietoa. Muuhun dataan voi käyttää AsyncStorage, kuten asetusten tallettamiseen.
 Tietokannan rakenne minimitoimintaan:
-```
-workout(treenit)
-- workoutId, name
 
-exercise(yksittäiset liikkeet)
-- exerciseId, name, category
+| Taulu | Sarakkeet |
+|-------|-----------|
+| `workout` | workoutId, name |
+| `exercise` | exerciseId, name, category |
+| `workout_history` | historyId, exerciseId, weight, reps, date, sessionId |
+| `workout_exercise` | workoutId, exerciseId |
 
-workout_history(historiataulu)
-- historyId, exerciseId, weight, reps, date, sessionId
+> Tarvittaessa tähän voisi lisätä taulun, johon yksittäinen treenisessio talletetaan:
 
-workout_exercise(liitostaulu, mitä liikkeitä treenissä on)
-- workoutId, exerciseId
-```
-**Tarvittaessa tähän voisi lisätä taulun, johon yksittäinen treenisessio talletetaan:**
-```
-workout_session
-- sessionId, workoutId, date
-```
+> | Taulu | Sarakkeet |
+> |-------|-----------|
+> | `workout_session` | sessionId, workoutId, date |
 
 ### SQLite
-Esimerkki Kotlinilla toimivasta tietokannasta, Reactia varten voi tarvia pieniä muutoksia.
-```
+> Esimerkki Kotlinilla toimivasta tietokannasta, Reactia varten voi tarvia pieniä muutoksia.
+
+```sql
 DROP TABLE IF EXISTS workout_history;
 DROP TABLE IF EXISTS workout;
 DROP TABLE IF EXISTS exercise;
