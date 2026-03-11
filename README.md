@@ -1,11 +1,9 @@
-# Kutosalisovellus
+# Kuntosalisovellus
 
 ## Suunnitelma ja markkinatilanne
 
 Ainakin päiväkirjamallinen treenien seuranta ja tilastot.
 Miten lisätä mukaan mahdollisesti sensoreita tai apia? Ei tietenkään ole pakko.
-
-
 Tällä hetkellä suosituimpia samankaltaisia sovelluksia:
 
 **Strong**:
@@ -56,7 +54,7 @@ src
  ├── types          datatyypit (esim. Type Wokout{})
  └── theme          provider teemalle
 ```
-
+___
 ### Components
 Uudelleenkäytettävät UI-komponentit. Käyttöliittymä pysyy yhtenäisenä, jos elementit jakaa komponentteihin.
 Komponentteja on karkeasti kahden tyylisiä, *stateless* ja *stateful*.
@@ -72,7 +70,7 @@ Komponentteja on karkeasti kahden tyylisiä, *stateless* ja *stateful*.
 
 Jos pyrkii siihen, että mahdollisimman moni komponentti on *stateless*, UI:n tekeminen ja muokkaaminen helpottuu.
 Eli ei yhtä komponenttia, joka tekee kaiken: hakee, muuttaa ja näyttää. 
-
+___
 
 ### Screens
 Mitä näkymiä tarvitaan/halutaan, ainakin:
@@ -80,11 +78,11 @@ Mitä näkymiä tarvitaan/halutaan, ainakin:
 - Liikekirjasto
 - Tilastot
 - Asetukset?
-
+___
 ### Navigation
 Käytetäänkö esim. ``BottomTab``-navigaatiota, se on ainakin yksinkertainen toteuttaa?
 Esim: <https://github.com/veliok/mobile-hybrid-week8/blob/main/navigation/Tabs.tsx>
-
+___
 ### Store
 **Ei välttämätön, mutta voi hyödyttää**.
 
@@ -95,12 +93,12 @@ Minimaalinen esimerkki ilman:
  - ```App``` -> ```MainScreen``` -> ```WorkoutCard```
 Esimerkki storella:
  - ```WorkoutCard``` ottaa suoraan storesta.
-
+___
 ### Database
 - Tietokannan tiedosto(alustus, skeema, yms.)
 - Repositoryt (CRUD SQL funktiot)
 - Migraatiot, jos tarvitaan.
-
+___
 ### Services
 Esimerkiksi ``exerciseService.ts`` sisältäisi funktiot:
  - Uuden liikkeen luomiselle
@@ -109,12 +107,12 @@ Esimerkiksi ``exerciseService.ts`` sisältäisi funktiot:
 
 Näitä funktioita voisi sitten käyttää screeneillä tyyliin:
 ``exerciseService.createExercise(data);``
-
+___
 ### Utils
 Hyödylliset apufunktiot jos tarvii, esim:
  - ``dateUtils.ts``
   - Muuttaa päivämäärän tiettyyn muotoon.
-
+___
 ### Types
 Pitkin ohjelmaa tarvittavat datatyypit, esim:
 ```
@@ -124,7 +122,7 @@ export type Exercise = {
     group/category: string;
 }
 ```
-
+___
 ### Theme
 Sovelluksella kannattaa olla ```useContext``` ```Provider```, josta jokainen komponentti saa perustyylin: värit, fontin, spacing, teema, jne. Ei tarvi tehdä styleä jokaiselle komponentille erikseen.
 
