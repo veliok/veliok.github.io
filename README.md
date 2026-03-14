@@ -160,9 +160,43 @@ Tähän tarvii miettiä mitä kaikkea halutaan näyttää ja myös UI:n osalta, 
 
 ---
 
-## Tietokanta/käyttäjätiedot
-Varmaan SQLite, koska tarvii toisiinsa liittyvää tietoa. Muuhun dataan voi käyttää AsyncStorage, kuten asetusten tallettamiseen.
-Tietokannan rakenne minimitoimintaan:
+## Tietokanta/käyttäjätiedot PÄIVITETTY
+Kotlinkurssin mukaisen "offline-first" periaatteen ja käyttäjätilin/autentikoinnin saisi luotua Supabasella.
+Puhelimessa olisi paikallinen SQLite tietokanta, joka synkkautuisi pilveen ajoittain/tallennuksen yhteydessä. Supabase on vähän kuin SQLite ja Firebase yhdistettynä ja suosittu mobiilisovelluksissa.
+
+**Flow olisi:**
+
+``Treenin tallennus`` -> ``Paikallinen tietokanta`` -> ``if !synced`` -> ``syncService`` -> ``Supabase tallennus`` -> ``synced = true``
+
+``Synced`` on synkronointilippu(flag) paikallisessa tietokannassa, joka kertoo onko kyseinen rivi jo lähetetty pilveen. Käyttäjä luo uutta tietoa sovelluksessa, ``synced`` saa arvon ``0``, pilveen lähettämisen jälkeen asetetaan arvoon ``1``. Sama idea toimisi jokaiselle tietokannan taululle ja ``syncService`` käy läpi kaikki tarkistaen onko uutta tietoa.
+
+**syncService flow**:
+
+``SELECT WHERE synced = 0`` -> ``talletus Supabase`` -> ``UPDATE synced = 1``
+
+Supabasessa on myös automaattinen id-järjestelmä. Käyttäjän rekisteröityessä Supabase luo jokaiselle ``UUID``-tunnisteen ja tallentaa sen ``auth.users``-tauluun.
+
+**Kansiorakenne muuttuisi**:
+```
+remote/
+    client.ts
+    authService.ts
+local/
+    db.ts
+    initDb.ts
+    repositoryt
+services/
+    syncService.ts
+```
+
+**Tietokantaan tarvisi lisätä**:
+- userId UUID REFERENCES auth.users(id)
+- synced INTEGER DEFAULT 0
+
+---
+
+
+**Tietokannan rakenne minimitoimintaan**:
 
 | Taulu | Sarakkeet |
 |-------|-----------|
