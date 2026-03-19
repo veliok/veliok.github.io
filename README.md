@@ -2,7 +2,7 @@
 
 ## Miten tieto kulkee tietokannasta -> UI, TÄLLEEN UI:N TEKEMINEN OLISI HELPPOA
 
-Tähän olisi hyvä käyttää kerrostettua mallua, eli sovelluksen toiminta on jaettu eri tasoihin:
+Tähän olisi hyvä käyttää kerrostettua mallia, eli sovelluksen toiminta on jaettu eri tasoihin:
 
 1. **Data layer - database/**
 - ``database/repository`` toteuttaa pelkät tietokannan CRUD-operaatiot ja palauttaa raakadatan.
@@ -14,21 +14,12 @@ Tähän olisi hyvä käyttää kerrostettua mallua, eli sovelluksen toiminta on 
 - Näyttää tiedon, jonka business layer on jo muokannut tavittavaksi
 
 ### Miksi näin/hyödyt
-Kuten harjoitutehtävissä, sitä tietokannan dataa pitää paketoida tyyppeihin(``type``), tarkistaa, koostaa ja ehkä muokata. Sitä ei ole hyvä tehdä **UI**-tiedostoissa, eikä suoraan tietokantakutsuissa.
+Kuten harjoitustehtävissä, sitä tietokannan dataa pitää paketoida tyyppeihin(``type``), tarkistaa, koostaa ja ehkä muokata. Sitä ei ole hyvä tehdä **UI**-tiedostoissa, eikä suoraan tietokantakutsuissa.
 Hyötyä olisi myös ``types/tyypit.ts``-tiedostosta, jossa on tarvittavat tyypit valmiina.
-
-
-**Tiedon flow**:
-```
-Data layer
-    ↓
-Business layer
-    ↓
-Presentation layer
-```
 
 ### Esimerkki liikkeen luomisella koko hommasta:
 1. ``database/repository/exerciseRepository.ts``, eli pelkät tietokantakutsut:
+
 ```sql
 export const getExercises = () => {
   return database.getAllAsync(
@@ -36,7 +27,9 @@ export const getExercises = () => {
   )
 }
 ```
+
 2. ``service/exerciseService.ts``, eli logiikka:
+
 ```typescript
 import { Exercise } from "../types/models"
 import { ExerciseRepository } from "../database/repositories/ExerciseRepository"
@@ -55,7 +48,9 @@ async createExercise(name: string, category: string, userId: string) {
   })
 }
 ```
-3. ``screens/jokuScreen.tsx``, UI:ssa voi vain helposti kutsua servicen funktiota.
+
+3. ``screens/jokuScreen.tsx``, UI:ssa voi vain helposti kutsua servicen funktiota:
+
 ```typescript
 import { exerciseService } from "../services/exerciseService"
 import { Exercise } from "../types/models"
