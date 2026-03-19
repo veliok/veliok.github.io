@@ -51,7 +51,7 @@ async createExercise(name: string, category: string, userId: string) {
 
 3. ``screens/jokuScreen.tsx``, UI:ssa voi vain helposti kutsua servicen funktiota:
 
-```typescript
+```JSX
 import { exerciseService } from "../services/exerciseService"
 import { Exercise } from "../types/models"
 
@@ -73,7 +73,7 @@ return (
     	value={exercise.name}
     	onChangeText={(text) =>
     		setExercise(prev => ({ ...prev, name: text }))
-    	}
+        }
   	/>
 	<Button onPress={handleCreateExercise}/>
 )
