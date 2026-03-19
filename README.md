@@ -80,6 +80,7 @@ return (
 ```
 
 4. ``types/types.ts``, valmiiksi määritellyt tyypit:
+
 ```typescript
 export type Exercise = {
   exerciseId?: number
