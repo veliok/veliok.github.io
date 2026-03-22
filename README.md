@@ -5,13 +5,13 @@
 Tähän olisi hyvä käyttää kerrostettua mallia, eli sovelluksen toiminta on jaettu eri tasoihin:
 
 1. **Data layer - database/**
-- ``database/repository`` toteuttaa pelkät tietokannan CRUD-operaatiot ja palauttaa raakadatan.
+- ``database/repository`` toteuttaa pelkät tietokannan CRUD-operaatiot.
 2. **Business layer - service/**
-- Logiikka, tyypitys, poikkeusten käsittely
-- ``servicet`` paketoi datan käyttöliittymässä käytettäviin muotoihin type-objektien muodossa.
-- tekee myös loogiset tarkistukset uudelle datalle, ja repository olettaa datan olevan kunnossa.
+- Logiikka, poikkeusten käsittely.
+- Tarvittaessa ``service`` paketoi datan type-objektien muotoon.
+- Tekee loogiset tarkistukset uudelle datalle, ja repository olettaa datan olevan kunnossa.
 3. **Presentation layer - ui/**
-- Näyttää tiedon, jonka business layer on jo muokannut tavittavaksi
+- Näyttää tiedon, jonka business layer ja repository on jo muokannut oikeaan muotoon.
 
 ### Miksi näin/hyödyt
 Kuten harjoitustehtävissä, sitä tietokannan dataa pitää paketoida tyyppeihin(``type``), tarkistaa, koostaa ja ehkä muokata. Sitä ei ole hyvä tehdä **UI**-tiedostoissa, eikä suoraan tietokantakutsuissa.
@@ -21,32 +21,39 @@ Hyötyä olisi myös ``types/tyypit.ts``-tiedostosta, jossa on tarvittavat tyypi
 1. ``database/repository/exerciseRepository.ts``, eli pelkät tietokantakutsut:
 
 ```sql
-export const getExercises = () => {
-  return database.getAllAsync(
-    "SELECT * FROM exercise"
-  )
-}
+async createExercise(name: string, category: string): Promise<number> {
+    const result = await database.runAsync(
+      `INSERT INTO exercise (name, category) VALUES (?, ?)`,
+      [name, category]
+    )
+    return result.lastInsertRowId
+  },
 ```
 
 2. ``service/exerciseService.ts``, eli logiikka:
 
 ```typescript
-import { Exercise } from "../types/models"
-import { ExerciseRepository } from "../database/repositories/ExerciseRepository"
+async createExercise(name: string, category: string): Promise<number> {
+    // Trimmataan mahdolliset välilyönnit alusta ja lopusta.
+    const cleanName = name.trim();
 
-async createExercise(name: string, category: string, userId: string) {
-  if(!name) {
-    throw new Error("Tarvitaan nimi")
-  }
-  if (!category) {
-    throw new Error("Tarvitaan kategoria")
-  }
-  return ExerciseRepository.insert({
-    name: name.trim(),
-    category,
-    user_id: userId
-  })
-}
+    // Tarkistetaan onko syöte kelvollinen
+    if (!cleanName) {
+      throw new Error("Liikkeellä täytyy olla nimi.")
+    }
+    if (!category) {
+      throw new Error("Liikkeellä täytyy olla kategoria.")
+    }
+
+    // Tarkistetaan löytyykö tietokannasta jo tämän niminen liike.
+    const existing = await exerciseRepository.getExerciseByName(cleanName);
+    if (existing) {
+      throw new Error("Tämän niminen liike on jo olemassa.")
+    }
+
+    // Jos kaikki oli kunnossa, kutsutaan repositoryn funktio ja palautetaan sen palautus.
+    return exerciseRepository.createExercise(cleanName, category);
+  },
 ```
 
 3. ``screens/jokuScreen.tsx``, UI:ssa voi vain helposti kutsua servicen funktiota:
@@ -55,28 +62,15 @@ async createExercise(name: string, category: string, userId: string) {
 import { exerciseService } from "../services/exerciseService"
 import { Exercise } from "../types/models"
 
-// Statena voi käyttää tyyppiä
-const [exercise, setExercise] = useState<Exercise>({
-  name: "",
-  category: ""
-})
-
-const handleCreateExercise = async () => {
-  await exerciseService.createExercise(
-    exercise.name,
-    exercise.category,
-    userId
-  )
-}
-return (
-	<TextInput
-    	value={exercise.name}
-    	onChangeText={(text) =>
-    		setExercise(prev => ({ ...prev, name: text }))
-        }
-  	/>
-	<Button onPress={handleCreateExercise}/>
-)
+const handleSave = async () => {
+    // try-catch lohko ottaa servicen errorin ja viestin "kiinni",
+    // sovelluksessa näytetään viesti ja toiminta jatkuu, ilman tätä sovellus kaatuu.
+  try {
+    const newId = await exerciseService.createExercise(name, category);
+  } catch (error: any) {
+    Alert.alert("Virhe", error.message);
+  }
+};
 ```
 
 4. ``types/types.ts``, valmiiksi määritellyt tyypit:
@@ -84,7 +78,6 @@ return (
 ```typescript
 export type Exercise = {
   exerciseId?: number
-  user_id?: string
   name: string
   category: string
 }
